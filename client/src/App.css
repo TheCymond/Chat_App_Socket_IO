@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap");
+
+:root {
+  --background-color: #fafafa;
+  --primary-color: #7ed6df;
+  --border-color: #fff29c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+  color: #fff;
+  height: 100vh;
+  background: var(--background-color);
+  overflow-y: hidden;
+}
+ul {
+  list-style: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.users-container,
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  padding: 2.1rem;
+  width: 500px;
+  height: 65vh;
+  /*  */
+  background: rgba(255, 255, 255, 0.46);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.users-container ul,
+.rooms-container ul {
+  overflow-y: scroll;
+  padding: 2rem;
+  overflow-x: hidden;
+  margin-top: 1rem;
+}
+
+.users li,
+.rooms li {
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  margin: 5px auto;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  color: #000;
+}
+
+.users li:hover,
+.rooms li:hover {
+  transform: scale(1.05);
+  background-color: rgb(147, 196, 249);
+}
+
+.rooms_heading,
+.users_heading,
+.main_heading {
+  text-align: center;
+}
+
+/* Scroll */
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  color: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Chat */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 60vh;
+  background-color: inherit;
+  /* border-radius: 1rem; */
+  margin: 1rem auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 1rem;
+}
+
+.chat-me,
+.chat-user {
+  color: #fff;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 10px auto;
+  font-weight: bold;
+  animation-iteration-count: 1;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
+}
+
+.chat-me {
+  justify-self: flex-end;
+  text-align: right;
+  background-color: #22a6b3;
+  animation: fademe 0.3s;
+}
+
+.chat-user {
+  justify-self: flex-start;
+  text-align: left;
+  background-color: #7ed6df;
+  color: #000;
+  animation: fadeuser 0.3s;
+}
+
+/* Chat form */
+
+.chat-form {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 1rem; */
+  width: 100%;
+}
+
+.chat-form input {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  outline: 0;
+  border: 0;
+  background-color: #130f40;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.chat-form input::placeholder {
+  color: #fff;
+}
+
+/* Animations */
+
+@keyframes fademe {
+  from {
+    opacity: 0;
+    transform: translateX(+100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeuser {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  width: 100%;
+  font-size: 18px;
+  padding: 1.5rem 2rem;
+  border: none;
+  outline: 0;
+  border-radius: 20px;
+  font-weight: bold;
+  font-family: inherit;
+  transition: 0.3s;
+  background: rgb(222, 220, 220);
+}
+
+.btn-container {
+  padding: 1rem 0;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+.btn:active {
+  transform: scale(1.09);
+}
+
+.send_btn,
+.emoji_btn {
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  outline: 0;
+  border: 0;
+  font-size: 1.2rem;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.send_btn {
+  background-image: linear-gradient(
+    to right,
+    #130f40 0%,
+    #28235e 51%,
+    #2b284c 100%
+  );
+}
+
+.emoji_btn {
+  background-color: inherit;
+  border: 2px solid #000;
+  color: #000;
+}
+.send_btn:hover {
+  transform: scale(1.05);
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+.emoji_btn:hover {
+  transform: scale(1.09);
+}
+
+.emoji_btn:active,
+.send_btn:active {
+  transform: scale(1.09);
+}
+
+/* Headings */
+
+.users_heading,
+.rooms_heading,
+.no_rooms {
+  background-color: inherit;
+  border-radius: 20px;
+  padding: 1rem 3rem;
+  /* margin-bottom: 10px; */
+  color: #000;
+}
+
+.main_heading {
+  background: var(--primary-color);
+  margin: 0;
+  padding: 1rem;
+  color: #000;
+}
+
+.my_socket {
+  color: #000;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.roomjoined {
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
+  margin-top: 0.2rem;
+}
+
+/* Emoji */
